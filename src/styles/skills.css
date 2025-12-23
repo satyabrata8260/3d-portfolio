@@ -1,0 +1,81 @@
+.skills {
+  position: relative;
+}
+
+.skills h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+}
+
+/* CARD */
+.skill-card {
+  position: relative;
+  padding: 32px;
+  border-radius: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  transition: all 0.45s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* FLOATING EFFECT */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* GLOW LAYER */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(234, 179, 8, 0.35)
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: -1;
+}
+
+/* HOVER EFFECT */
+.skill-card:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(96, 165, 250, 0.28);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+/* TEXT */
+.skill-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.skill-card p {
+  opacity: 0.85;
+  line-height: 1.6;
+}

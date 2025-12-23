@@ -1,0 +1,99 @@
+.projects {
+  position: relative;
+}
+
+.projects h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 45px;
+}
+
+/* CARD */
+.project-card {
+  position: relative;
+  padding: 38px;
+  border-radius: 26px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  transition: all 0.5s ease;
+  animation: floatCard 7s ease-in-out infinite;
+}
+
+/* DIFFERENT FLOAT SPEEDS */
+.project-card:nth-child(2) {
+  animation-duration: 8.5s;
+}
+.project-card:nth-child(3) {
+  animation-duration: 6.5s;
+}
+
+/* FLOAT ANIMATION */
+@keyframes floatCard {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* GLOW EDGE */
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 26px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(234, 179, 8, 0.7),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* HOVER */
+.project-card:hover {
+  transform: translateY(-18px) scale(1.03);
+  box-shadow: 0 35px 70px rgba(96, 165, 250, 0.35);
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+/* TEXT */
+.project-card h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.project-card p {
+  opacity: 0.85;
+  line-height: 1.7;
+}
+
+/* CTA */
+.project-card .view {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #60a5fa;
+  opacity: 0.9;
+}

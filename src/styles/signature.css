@@ -1,0 +1,14 @@
+.signature-pulse {
+  position: fixed; inset: 0; pointer-events: none; z-index: 2;
+  background: radial-gradient(circle at center,
+    rgba(234,179,8,.35), transparent 45%);
+  opacity: 0; transform: scale(.85);
+}
+.signature-pulse.play {
+  animation: pulseOnce 900ms ease-out forwards;
+}
+@keyframes pulseOnce {
+  0% { opacity: 0; transform: scale(.85); }
+  30% { opacity: .9; }
+  100% { opacity: 0; transform: scale(1.15); }
+}
